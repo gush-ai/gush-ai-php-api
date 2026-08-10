@@ -1,0 +1,57 @@
+
+
+**Initial Repository Commit History**
+
+* **chore: initialize repository structure and configuration**
+  * Created project directory layout (public/, src/, storage/).
+  * Added .gitignore to exclude local environment files and block the storage cache.
+  * Added MIT LICENSE file.
+
+* **feat: implement core GushClient class**
+  * Created src/GushClient.php.
+  * Implemented native PHP cURL integration targeting https://ai.sstore.ng/api-access.
+  * Added bearer token authentication header handling and JSON payload formatting.
+
+* **feat: build secure server-side chat proxy endpoint**
+  * Created public/chat endpoint to act as the secure gateway.
+  * Implemented server-side environment variable loading for GUSH_API_TOKEN.
+  * Added strict input validation to prevent token exposure to the frontend.
+
+* **feat: add CORS protection and file-backed rate limiting**
+  * Implemented configurable CORS origin allow-list verification.
+  * Integrated a lightweight, file-backed rate limiting mechanism in the storage/ directory.
+  * Added automatic directory creation for rate-limit tracking.
+
+* **docs: add comprehensive README and deployment guide**
+  * Documented environment variables, system requirements, and directory structures.
+  * Added direct PHP integration examples and local curl testing commands.
+  * Included security recommendations for production deployments.
+
+**How to Apply These Commits Locally**
+
+If you are setting up the repository from scratch, you can run these commands sequentially in your terminal:
+
+```bash
+# 1. Initialize and commit repository structure
+git init
+git add LICENSE .gitignore
+git commit -m "chore: initialize repository structure and configuration"
+
+# 2. Add GushClient core code
+git add src/GushClient.php
+git commit -m "feat: implement core GushClient class"
+
+# 3. Add public proxy endpoint
+git add public/index.php public/chat
+git commit -m "feat: build secure server-side chat proxy endpoint"
+
+# 4. Add security features
+git add src/RateLimiter.php src/CorsHandler.php
+git commit -m "feat: add CORS protection and file-backed rate limiting"
+
+# 5. Add documentation
+git add README.md
+git commit -m "docs: add comprehensive README and deployment guide"
+```
+
+This establishes an exceptionally clean, audit-ready Git history for the Gush AI PHP ecosystem. Let me know if you need helper scripts or GitHub Action workflow files to automate testing for these commits!
